@@ -1,53 +1,50 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
 
-    float rotateSpeed = 40.0f; //Скорость поворота
-    float moveSpeed = 25.0f; //Скорость движения камеры 
-    float zoomSpeed = 15.0f; //Скорость подъема и спуска камеры 
-
-    float coefMult = 1f; //коэф. на который умножается скороть (удваиваетсья при зажатии LShift)
-
+    [SerializeField] private float rotateSpeed = 40.0f; 
+    [SerializeField] private float moveSpeed = 25.0f; 
+    [SerializeField] private float zoomSpeed = 15.0f;
+    [SerializeField] private FixedJoystick joystick;
+    
+    
     private void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal"); //клавиши отвечающие за гор. передвижение 
-        float vertical = Input.GetAxis("Vertical"); ////клавиши отвечающие за вер. передвижение
+        //keyboard movement
+        float horizontal = Input.GetAxis("Horizontal"); 
+        float vertical = Input.GetAxis("Vertical"); 
 
-        float rotateDirection = 0f; //Направление поворота камеры
-        if (Input.GetKey(KeyCode.Q))
+        float rotateDirection = 0f; 
+        if (InputModel.IsLeftRotationPressed)
         {
-            rotateDirection = -1f; //Поворот влево
+            rotateDirection = -1f; 
         }
-        else if (Input.GetKey(KeyCode.E)) 
+        else if (InputModel.IsRightRotationPressed)
         {
-            rotateDirection = 1f; //поворот вправо
+            rotateDirection = 1f;
         }
-
-        coefMult = Input.GetKey(KeyCode.LeftShift) ? 2f : 1; 
 
         transform.Rotate(Vector3.up * rotateSpeed *
-            Time.deltaTime * rotateDirection * coefMult, Space.World);
-        // Поворот камеры: координату Y (Vector3.up) умножаем на скорость поворота,
-        // дельтаТайм (плавность), направление поворота и коэф. ускорения
-        // вращаем относительно глобальных координат (Space.World)
-
+                         Time.deltaTime * rotateDirection, Space.World);
+        
         transform.Translate(new Vector3(horizontal, 0, vertical) * 
-            Time.deltaTime * coefMult * moveSpeed, Space.Self);
-        // Движение объекта
+            Time.deltaTime * moveSpeed, Space.Self);
 
         transform.position += transform.up * zoomSpeed *
             Input.GetAxis("Mouse ScrollWheel");
-        // Приближение и отдаление камеры
 
         transform.position = new Vector3(
             transform.position.x,
             Mathf.Clamp(transform.position.y, -25f, 25f),
             transform.position.z);
-        // Ограничения приближения и тдаления камеры
-
+        
+        //phone movement
+        transform.Translate(new Vector3
+            (joystick.Horizontal * moveSpeed,0,joystick.Vertical * moveSpeed) * Time.deltaTime);
     }
 }
