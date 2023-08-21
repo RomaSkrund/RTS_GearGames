@@ -28,7 +28,7 @@ public class AutoCarCreate : MonoBehaviour
             Vector3 pos = new Vector3(
                 transform.GetChild(0).position.x + UnityEngine.Random.Range(3f, 7f),
                 transform.GetChild(0).position.y,
-                transform.GetChild(0).position.z + UnityEngine.Random.Range(3f, 7f)); // исправить 
+                transform.GetChild(0).position.z + UnityEngine.Random.Range(3f, 7f)); 
 
             GameObject spawn = Instantiate(car, pos, Quaternion.identity);
 

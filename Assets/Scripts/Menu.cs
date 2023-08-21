@@ -1,0 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class Menu : MonoBehaviour
+{
+    public void FirstLevelStart()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void SecondLevelStart()
+    {
+        SceneManager.LoadScene(2);
+    }
+    
+    public void ThirdLevelStart()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void DoExit()
+    {
+        Application.Quit();
+    }
+}

@@ -6,36 +6,36 @@ using DefaultNamespace;
 
 public class RotationCamera : MonoBehaviour
 {
-    private bool pressedRightButton = false;
-    private bool pressedLeftButton = false;
+    private bool _pressedRightButton = false;
+    private bool _pressedLeftButton = false;
     public void onDownRight()
     {
-        pressedRightButton = true;
+        _pressedRightButton = true;
     }
 
     public void onUpRight()
     {
-        pressedRightButton = false;
+        _pressedRightButton = false;
     }
     
     public void onDownLeft()
     {
-        pressedLeftButton = true;
+        _pressedLeftButton = true;
     }
 
     public void onUpLeft()
     {
-        pressedLeftButton = false;
+        _pressedLeftButton = false;
     }
 
     private void Update()
     {
-        if (pressedRightButton)
+        if (_pressedRightButton)
         {
             InputModel.IsRightRotationPressed = true;
         }
 
-        if (pressedLeftButton)
+        if (_pressedLeftButton)
         {
             InputModel.IsLeftRotationPressed =  true;
         }
