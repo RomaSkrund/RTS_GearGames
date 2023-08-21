@@ -11,15 +11,18 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float moveSpeed = 25.0f; 
     [SerializeField] private float zoomSpeed = 15.0f;
     [SerializeField] private FixedJoystick joystick;
-    
+    [SerializeField] private float 
+        maxX, minX, 
+        maxY, minY, 
+        maxZ, minZ;
     
     private void Update()
     {
         //keyboard movement
-        float horizontal = Input.GetAxis("Horizontal"); 
-        float vertical = Input.GetAxis("Vertical"); 
+        var horizontal = Input.GetAxis("Horizontal"); 
+        var vertical = Input.GetAxis("Vertical"); 
 
-        float rotateDirection = 0f; 
+        var rotateDirection = 0f; 
         if (InputModel.IsLeftRotationPressed)
         {
             rotateDirection = -1f; 
@@ -38,13 +41,13 @@ public class CameraController : MonoBehaviour
         transform.position += transform.up * zoomSpeed *
             Input.GetAxis("Mouse ScrollWheel");
 
-        transform.position = new Vector3(
-            transform.position.x,
-            Mathf.Clamp(transform.position.y, -25f, 25f),
-            transform.position.z);
-        
         //phone movement
         transform.Translate(new Vector3
             (joystick.Horizontal * moveSpeed,0,joystick.Vertical * moveSpeed) * Time.deltaTime);
+        
+        transform.position = new Vector3(
+            Mathf.Clamp(transform.position.x, minX, maxX),
+            Mathf.Clamp(transform.position.y, minY, maxY),
+            Mathf.Clamp(transform.position.z, minZ, maxZ));
     }
 }

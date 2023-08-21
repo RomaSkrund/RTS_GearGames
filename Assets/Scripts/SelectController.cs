@@ -1,17 +1,15 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class SelectController : MonoBehaviour
 {
-    public GameObject cube; //Поле внутри которого все выбирается 
-    public List<GameObject> players; //список выбранных объектов 
+    public GameObject cube; 
+    public List<GameObject> players; 
     private Camera _cam;
     public LayerMask layer, layerMask;
     private GameObject _cubeSelection;
-    RaycastHit _hit;
+    private RaycastHit _hit;
 
     private void Awake()
     {
@@ -22,13 +20,16 @@ public class SelectController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) && players.Count > 0)
         {
-            Ray ray = _cam.ScreenPointToRay(Input.mousePosition); //отслеживаем куда от мышки падает луч на нашу карту
+            Ray ray = _cam.ScreenPointToRay(Input.mousePosition); 
 
             if (Physics.Raycast(ray, out RaycastHit agentTarget, 1000f, layer))
             {
                 foreach (var el in players)
                 {
-                    el.GetComponent<NavMeshAgent>().SetDestination(agentTarget.point);
+                    if (el) //РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РїСѓР»Р» РѕР±СЉРµРєС‚РѕРІ РєРѕС‚РѕСЂС‹Рµ С…СЂР°РЅСЏС‚ РёРЅС„Сѓ С‡С‚Рѕ РѕРЅРё РІС‹РґРµР»РµРЅРЅС‹, Рё РєРѕРіРґР° РѕРЅРё СѓРјРёСЂР°СЋС‚ РѕРЅРё СЃР°РјРё РІС‹С…РѕРґСЏС‚ РёР· РјР°СЃСЃРёРІР°  
+                    {
+                        el.GetComponent<NavMeshAgent>().SetDestination(agentTarget.point);
+                    }
                 }
             }
         }
@@ -45,7 +46,7 @@ public class SelectController : MonoBehaviour
 
             players.Clear();
 
-            Ray ray = _cam.ScreenPointToRay(Input.mousePosition); //отслеживаем куда от мышки падает луч на нашу карту
+            Ray ray = _cam.ScreenPointToRay(Input.mousePosition);  
 
             if (Physics.Raycast(ray, out _hit, 1000f, layer))
             {
@@ -55,7 +56,7 @@ public class SelectController : MonoBehaviour
 
         if (_cubeSelection)
         {
-            Ray ray = _cam.ScreenPointToRay(Input.mousePosition); //отслеживаем куда от мышки падает луч на нашу карту
+            Ray ray = _cam.ScreenPointToRay(Input.mousePosition); 
 
             if (Physics.Raycast(ray, out RaycastHit hitDrag, 1000f, layer))
             {
