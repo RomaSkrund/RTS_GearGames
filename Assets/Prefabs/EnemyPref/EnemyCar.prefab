@@ -315,7 +315,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7574856985513561399}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1196070128507200673
 MeshFilter:
@@ -399,7 +399,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7574856985513561399}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9057061369378985548
 MeshFilter:
@@ -493,7 +493,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7574856985513561399}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6463515993064567047
 GameObject:
@@ -675,7 +675,7 @@ GameObject:
   - component: {fileID: 551078177391440021}
   - component: {fileID: 7932849710886806824}
   m_Layer: 8
-  m_Name: Car
+  m_Name: EnemyCar
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -693,11 +693,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1695694070893898164}
-  - {fileID: 872843181828028766}
-  - {fileID: 4426312441978607344}
-  - {fileID: 2803771889412495546}
   - {fileID: 7697606255866220374}
+  - {fileID: 2803771889412495546}
+  - {fileID: 4426312441978607344}
+  - {fileID: 872843181828028766}
+  - {fileID: 1695694070893898164}
   - {fileID: 5195593846249484585}
   - {fileID: 5914169369335926699}
   m_Father: {fileID: 0}
@@ -727,9 +727,9 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 2.73
   m_Speed: 20
-  m_Acceleration: 40
+  m_Acceleration: 20
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 50
   m_StoppingDistance: 5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -752,7 +752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 70
   shootingSpeed: 1
-  bullet: {fileID: 1720932187995192027, guid: a1daafdc9c4e38e43987bef0a62090de, type: 3}
+  bullet: {fileID: 1720932187995192027, guid: e43fdd6b4fd30aa40a81c308960ee95c, type: 3}
 --- !u!54 &7932849710886806824
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -893,12 +893,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7846259950683624633}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7574856985513561399}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &698846985589310987
 MeshFilter:

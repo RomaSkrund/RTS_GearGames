@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,7 +8,7 @@ public class SelectController : MonoBehaviour
     public GameObject cube; 
     public List<GameObject> players; 
     private Camera _cam;
-    public LayerMask layer, layerMask;
+    public LayerMask layer, layerMask, interfaceLayer;
     private GameObject _cubeSelection;
     private RaycastHit _hit;
 
@@ -46,11 +47,12 @@ public class SelectController : MonoBehaviour
 
             players.Clear();
 
-            Ray ray = _cam.ScreenPointToRay(Input.mousePosition);  
-
+            Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
+            
             if (Physics.Raycast(ray, out _hit, 1000f, layer))
             {
-                _cubeSelection = Instantiate(cube, new Vector3(_hit.point.x, 0.56f, _hit.point.z), Quaternion.identity);
+                _cubeSelection = Instantiate(cube, new Vector3(_hit.point.x, 0.56f, _hit.point.z),
+                    Quaternion.identity);
             }
         }
 
@@ -60,8 +62,8 @@ public class SelectController : MonoBehaviour
 
             if (Physics.Raycast(ray, out RaycastHit hitDrag, 1000f, layer))
             {
-                float xScale = (_hit.point.x - hitDrag.point.x) * -1;
-                float zScale = (_hit.point.z - hitDrag.point.z) * -1;
+                var xScale = (_hit.point.x - hitDrag.point.x) * -1;
+                var zScale = (_hit.point.z - hitDrag.point.z) * -1;
 
                 if (xScale < 0.0f && zScale < 0.0f)
                 {

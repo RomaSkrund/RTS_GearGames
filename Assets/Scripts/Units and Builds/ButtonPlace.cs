@@ -6,7 +6,7 @@ public class ButtonPlace : MonoBehaviour
 {
     public GameObject building;
 
-    public void PlaceBuild()
+    public void PlaceUnit()
     {
         Instantiate(building);
     }

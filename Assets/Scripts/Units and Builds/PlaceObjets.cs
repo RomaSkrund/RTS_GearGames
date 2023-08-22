@@ -32,8 +32,8 @@ public class PlaceObjets : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (gameObject.GetComponent<AutoCarCreate>())
-            gameObject.GetComponent<AutoCarCreate>().enabled = true;
+            //if (gameObject.GetComponent<AutoCarCreate>())
+            //gameObject.GetComponent<AutoCarCreate>().enabled = true;
             
             Destroy(gameObject.GetComponent<PlaceObjets>());
         }

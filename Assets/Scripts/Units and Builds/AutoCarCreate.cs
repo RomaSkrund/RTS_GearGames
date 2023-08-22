@@ -35,7 +35,7 @@ public class AutoCarCreate : MonoBehaviour
             if (IsEnemy)
             {
                 spawn.tag = "Enemy";
-                spawn.transform.GetChild(0).gameObject.GetComponent<Renderer>().material = enemyHealthBar;
+                spawn.transform.GetChild(4).gameObject.GetComponent<Renderer>().material = enemyHealthBar;
             }
         }
     }

@@ -84,7 +84,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: de85eddaa2e7e2748a034a514b352ac4, type: 3}
       propertyPath: m_Name
-      value: Brick_House Variant
+      value: Angar
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: de85eddaa2e7e2748a034a514b352ac4, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -111,6 +111,20 @@ CapsuleCollider:
   m_Height: 20.89
   m_Direction: 1
   m_Center: {x: -0.01, y: 5.1094985, z: -0.15}
+--- !u!114 &-4472562659160195025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7420881708910024793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbc509bc446ade7499b8118e71fcabf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addSpeed: 5
+  addValue: 10
 --- !u!114 &2464451149426297358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,7 +140,6 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 128
-  rotateSpeed: 60
 --- !u!114 &4172051395566647141
 MonoBehaviour:
   m_ObjectHideFlags: 0

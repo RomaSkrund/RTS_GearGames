@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class CarAttack : MonoBehaviour
+public class UnitAttack : MonoBehaviour
 {
-    [NonSerialized] public int _health = 100;
+    [SerializeField] public int _health = 100;
 
-    public float radius = 70f;
-    public float shootingSpeed = 1f;
+    [SerializeField] private float radius = 70f;
+    [SerializeField] private float shootingSpeed = 1f;
     private Coroutine _coroutine = null;
     public GameObject bullet;
 
@@ -53,11 +53,10 @@ public class CarAttack : MonoBehaviour
 
     IEnumerator StartAttack(Collider enemyPosition)
     {
-        GameObject obj = Instantiate(bullet, transform.GetChild(1).position, Quaternion.identity);
-        obj.GetComponent<EnemyBulletController>().position = enemyPosition.transform.position;
+        GameObject obj = Instantiate(bullet, transform.GetChild(3).position, Quaternion.identity);
+        obj.GetComponent<BulletController>().position = enemyPosition.transform.position;
         yield return new WaitForSeconds(shootingSpeed);
         StopCoroutine(_coroutine);
         _coroutine = null;
-
     }
 }
