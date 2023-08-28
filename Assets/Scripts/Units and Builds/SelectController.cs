@@ -1,14 +1,13 @@
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class SelectController : MonoBehaviour
 {
-    public GameObject cube; 
+    [SerializeField] private GameObject cube; 
     public List<GameObject> players; 
     private Camera _cam;
-    public LayerMask layer, layerMask, interfaceLayer;
+    [SerializeField] private LayerMask layer, layerMask, interfaceLayer;
     private GameObject _cubeSelection;
     private RaycastHit _hit;
 

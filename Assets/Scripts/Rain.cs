@@ -1,14 +1,11 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 public class Rain : MonoBehaviour
 {
-    public Light dirLight;
+    [SerializeField] private Light dirLight;
     private ParticleSystem _ps; 
-    private bool _isRain = false;  
+    private bool _isRain;  
 
     private void Start()
     {
@@ -34,11 +31,11 @@ public class Rain : MonoBehaviour
         dirLight.intensity += 0.1f * Time.deltaTime * mult;
     }
 
-    IEnumerator Weather()
+    private IEnumerator Weather()
     {
         while (true)
         {
-            yield return new WaitForSeconds(UnityEngine.Random.Range(60f, 90f));
+            yield return new WaitForSeconds(Random.Range(60f, 90f));
             
 
             if( _isRain )

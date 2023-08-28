@@ -1,15 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EndGameController : MonoBehaviour
 {
-    [SerializeField] public Text timer;
+    [SerializeField] private Text timer;
     [SerializeField] private float roundTime;
-    [SerializeField] private bool timerIsRunning;
+    private bool timerIsRunning;
 
     private void Start()
     {

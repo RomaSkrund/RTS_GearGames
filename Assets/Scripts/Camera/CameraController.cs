@@ -1,24 +1,23 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
 
-    [SerializeField] private float rotateSpeed = 40.0f; 
-    [SerializeField] private float moveSpeed = 25.0f; 
-    [SerializeField] private float zoomSpeed = 15.0f;
+    [SerializeField] private float rotateSpeed; 
+    [SerializeField] private float moveSpeed; 
+    [SerializeField] private float zoomSpeed;
     [SerializeField] private FixedJoystick joystick;
     [SerializeField] private float 
-        maxX, minX, 
-        maxY, minY, 
-        maxZ, minZ;
+        maxX,
+        minX, 
+        maxY, 
+        minY, 
+        maxZ, 
+        minZ;
     
     private void Update()
     {
-        //keyboard movement
         var horizontal = Input.GetAxis("Horizontal"); 
         var vertical = Input.GetAxis("Vertical"); 
 

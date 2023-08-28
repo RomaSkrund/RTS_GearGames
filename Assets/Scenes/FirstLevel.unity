@@ -16535,9 +16535,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df15c73b0483de14c98ab3836117ae0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startResources: 100
-  ResoucesPanel: {fileID: 793079738}
-  maxResouces: 150
+  gameBalance: {fileID: 11400000, guid: b64e4b29fc24a6d4fb1ba1ce5124b8f4, type: 2}
+  resoucesPanel: {fileID: 793079738}
 --- !u!114 &793079738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17814,7 +17813,7 @@ GameObject:
   - component: {fileID: 920766727}
   - component: {fileID: 920766726}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32706,8 +32705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 1914079597}
-  roundTime: 180
-  timerIsRunning: 0
+  roundTime: 600
 --- !u!114 &1914079597
 MonoBehaviour:
   m_ObjectHideFlags: 0

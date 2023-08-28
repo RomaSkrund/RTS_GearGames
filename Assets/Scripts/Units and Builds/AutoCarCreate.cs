@@ -1,8 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Linq;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class AutoCarCreate : MonoBehaviour
@@ -12,7 +9,6 @@ public class AutoCarCreate : MonoBehaviour
     public GameObject car;
     public float time = 5f;
     public int countOfNewCars = 3;
-    public Material enemyHealthBar;
 
     private void Start()
     {
@@ -35,7 +31,6 @@ public class AutoCarCreate : MonoBehaviour
             if (IsEnemy)
             {
                 spawn.tag = "Enemy";
-                spawn.transform.GetChild(4).gameObject.GetComponent<Renderer>().material = enemyHealthBar;
             }
         }
     }

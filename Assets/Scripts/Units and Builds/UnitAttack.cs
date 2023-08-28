@@ -1,17 +1,20 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class UnitAttack : MonoBehaviour
 {
-    [SerializeField] public int _health = 100;
-
-    [SerializeField] private float radius = 70f;
+    [SerializeField] private int unitCost; //SO
+    public static int unitCoststatic;
+    [SerializeField] private float radius; //SO;
     [SerializeField] private float shootingSpeed = 1f;
-    private Coroutine _coroutine = null;
+    private Coroutine _coroutine;
     public GameObject bullet;
+
+    private void Start()
+    {
+        unitCoststatic = unitCost;
+    }
 
     private void Update()
     {

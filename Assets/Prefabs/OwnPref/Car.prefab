@@ -282,7 +282,7 @@ Transform:
   - {fileID: 4008724276455571210}
   - {fileID: 7402477357536644708}
   m_Father: {fileID: 7574856985513561399}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3273980757991200636
 GameObject:
@@ -315,7 +315,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7574856985513561399}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1196070128507200673
 MeshFilter:
@@ -399,7 +399,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7574856985513561399}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9057061369378985548
 MeshFilter:
@@ -526,7 +526,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7574856985513561399}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3360588792200966651
 MeshFilter:
@@ -675,6 +675,7 @@ GameObject:
   - component: {fileID: 551078177391440021}
   - component: {fileID: 7932849710886806824}
   - component: {fileID: 807035786769923646}
+  - component: {fileID: -2342497644544250870}
   m_Layer: 8
   m_Name: Car
   m_TagString: Player
@@ -694,13 +695,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7697606255866220374}
+  - {fileID: 1695694070893898164}
   - {fileID: 2803771889412495546}
   - {fileID: 4426312441978607344}
   - {fileID: 872843181828028766}
-  - {fileID: 1695694070893898164}
   - {fileID: 5195593846249484585}
   - {fileID: 5914169369335926699}
+  - {fileID: 7697606255866220374}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -751,7 +752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b6a250589a166f45892842d045809a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
+  unitCost: 0
   radius: 70
   shootingSpeed: 1
   bullet: {fileID: 1720932187995192027, guid: a1daafdc9c4e38e43987bef0a62090de, type: 3}
@@ -769,7 +770,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &807035786769923646
 MonoBehaviour:
@@ -786,6 +787,19 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &-2342497644544250870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7085460630238156685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 713e2461eeb234646a7606bce1956dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generalFieldsUnitBalance: {fileID: 11400000, guid: 862dc3877b697d0479aa70156cd77a49, type: 2}
 --- !u!1 &7727799658673004599
 GameObject:
   m_ObjectHideFlags: 0

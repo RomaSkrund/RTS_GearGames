@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ButtonPlace : MonoBehaviour
 {
     public GameObject building;
-
     public void PlaceUnit()
     {
-        Instantiate(building);
+        if (UnitAttack.unitCoststatic <= ResourcesPanelUpdate.Resources)
+        {
+            Instantiate(building);
+            ResourcesPanelUpdate.Resources -= UnitAttack.unitCoststatic;
+        }
     }
 }

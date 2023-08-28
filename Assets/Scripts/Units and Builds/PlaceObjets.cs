@@ -1,12 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlaceObjets : MonoBehaviour
 {
 
-    public LayerMask layer; 
+    [SerializeField] private LayerMask layer; 
 
     private void Start()
     {

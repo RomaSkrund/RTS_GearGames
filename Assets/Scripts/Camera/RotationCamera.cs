@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DefaultNamespace;
 
@@ -37,7 +34,7 @@ public class RotationCamera : MonoBehaviour
 
         if (_pressedLeftButton)
         {
-            InputModel.IsLeftRotationPressed =  true;
+            InputModel.IsLeftRotationPressed = true;
         }
     }
 }
