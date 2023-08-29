@@ -3,31 +3,32 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    [NonSerialized] public Vector3 position;
+    [NonSerialized] public Vector3 TargetPosition;
     [SerializeField] private float speed;
-    [SerializeField] private int damage;
     [SerializeField] private string tagForDestroy;
-
-    public static int causedDamage;
+    public int causedDamage;
+    private GameObject _attacedEnemy;
 
     private void Update()
     {
         float step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards
-            (transform.position, position, step);
+            (transform.position, TargetPosition, step);
 
-        if (transform.position == position)
+        if (transform.position == TargetPosition)
         {
             Destroy(gameObject);
         }
     }
 
-    private void OnTriggerEnter(Collider other) //передавать id аттакуемой машины 
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(tagForDestroy))
+        if (!other.CompareTag(tagForDestroy))
         {
-            causedDamage = damage;
-            UnitHealth.IsDamageGet = true;
+            return;
         }
+        _attacedEnemy = other.gameObject;
+        var bla = _attacedEnemy.GetComponent<UnitHealth>();
+        bla.GetDamage(causedDamage);
     }
 }

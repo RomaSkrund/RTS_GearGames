@@ -271,8 +271,8 @@ GameObject:
   - component: {fileID: 426159565566331085}
   - component: {fileID: 3175063295990547962}
   m_Layer: 8
-  m_Name: LightUnit
-  m_TagString: Player
+  m_Name: EnemyLightUnit
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -362,7 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitBalance: {fileID: 11400000, guid: c5631af15d97bc946a22ef582ac08c93, type: 2}
   shootingSpeed: 1
-  bullet: {fileID: 1720932187995192027, guid: a1daafdc9c4e38e43987bef0a62090de, type: 3}
+  bullet: {fileID: 1720932187995192027, guid: e43fdd6b4fd30aa40a81c308960ee95c, type: 3}
 --- !u!195 &-302282331980819287
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -372,7 +372,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3239052985491481776}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1
+  m_Radius: 0.6
   m_Speed: 10
   m_Acceleration: 15
   avoidancePriority: 50
@@ -399,6 +399,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalFieldsUnitBalance: {fileID: 11400000, guid: 82ba7a17a885ba64b8b5ef4a76aabbdb, type: 2}
   unitBalance: {fileID: 11400000, guid: c5631af15d97bc946a22ef582ac08c93, type: 2}
+  IsDamageGet: 0
+  damage: 0
 --- !u!114 &3175063295990547962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1126,7 +1128,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ee89e1bbf24525142a8617868f7aea58, type: 2}
+  - {fileID: 2100000, guid: 134efd4b27c09d54e989f4b253ed63d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

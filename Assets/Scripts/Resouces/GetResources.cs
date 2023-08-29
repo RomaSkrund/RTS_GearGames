@@ -14,11 +14,12 @@ public class GetResources : MonoBehaviour
     {
         while (true)
         {
+            yield return new WaitForSeconds(gameBalance.FactoryMiningSpeed);
+            
             if (!ResourcesPanelUpdate.IsMaxResouces)
             {
                 ResourcesPanelUpdate.Resources += gameBalance.FactoryMiningCount;
             }
-            yield return new WaitForSeconds(gameBalance.FactoryMiningSpeed);
         }
     }
 }

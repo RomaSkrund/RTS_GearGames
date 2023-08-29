@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class ButtonPlace : MonoBehaviour
 {
-    public GameObject building;
+    [SerializeField] private GameObject building;
+    [SerializeField] private GeneralFieldsUnitBalance generalFieldsUnitBalance;
     public void PlaceUnit()
     {
-        if (UnitAttack.unitCoststatic <= ResourcesPanelUpdate.Resources)
-        {
-            Instantiate(building);
-            ResourcesPanelUpdate.Resources -= UnitAttack.unitCoststatic;
-        }
+        if (generalFieldsUnitBalance.UnitCost > ResourcesPanelUpdate.Resources) return;
+        Instantiate(building);
+        ResourcesPanelUpdate.Resources -= generalFieldsUnitBalance.UnitCost;
     }
 }

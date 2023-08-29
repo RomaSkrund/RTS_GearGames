@@ -1,40 +1,57 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EndGameController : MonoBehaviour
 {
     [SerializeField] private Text timer;
     [SerializeField] private float roundTime;
-    private bool timerIsRunning;
+    [SerializeField] private Image endMenu;
+    [SerializeField] private Text gameResult;
+    [SerializeField] private GameObject ownBase;
+    //флажок level is passed
 
     private void Start()
     {
-        timerIsRunning = true;
+        GameTimeGo();
     }
 
     private void Update()
     {
-        if (timerIsRunning)
+        if (roundTime > 0.1)
         {
-            if (roundTime > 0.1)
-            {
-                roundTime -= Time.deltaTime;
-                UpdateLevelTimer(roundTime);
-            }
-            else
-            {
-                timerIsRunning = false;
-            }
+            roundTime -= Time.deltaTime;
+            UpdateLevelTimer(roundTime); 
         }
         else
         {
-            //Time.timeScale = 0;
-            //открывается окно с переходом на следующий уровень или в меню 
-            SceneManager.LoadScene(0);
+            EndingGame("Вы победили");
+        }
+
+        if (ownBase.IsDestroyed())
+        {
+            EndingGame("Вы проиграли");
         }
     }
 
+    private void EndingGame(string gameResultString)
+    {
+        GameTimeStop();
+        endMenu.GameObject().SetActive(true);
+        gameResult.text = gameResultString;
+    }
+
+    private void GameTimeGo()
+    {
+        Time.timeScale = 1;
+    }
+
+    private void GameTimeStop()
+    {
+        Time.timeScale = 0;
+    }
+    
     private void UpdateLevelTimer(float totalSeconds)
     {
         var minutes = Mathf.FloorToInt(totalSeconds / 60f);

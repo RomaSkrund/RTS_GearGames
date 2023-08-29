@@ -752,8 +752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b6a250589a166f45892842d045809a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitCost: 0
-  radius: 70
+  unitBalance: {fileID: 11400000, guid: a40dc525be4898646bf139b6679f85ae, type: 2}
   shootingSpeed: 1
   bullet: {fileID: 1720932187995192027, guid: a1daafdc9c4e38e43987bef0a62090de, type: 3}
 --- !u!54 &7932849710886806824
@@ -800,6 +799,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generalFieldsUnitBalance: {fileID: 11400000, guid: 862dc3877b697d0479aa70156cd77a49, type: 2}
+  unitBalance: {fileID: 11400000, guid: a40dc525be4898646bf139b6679f85ae, type: 2}
+  healthBar: {fileID: 1695694070893898164}
 --- !u!1 &7727799658673004599
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class AutoCarCreate : MonoBehaviour
 {
-    [NonSerialized]
-    public bool IsEnemy = false; 
-    public GameObject car;
-    public float time = 5f;
-    public int countOfNewCars = 3;
+    [SerializeField] private GameObject car;
+    [SerializeField] private float time;
+    [SerializeField] private int countOfNewCars;
 
     private void Start()
     {
         StartCoroutine(SpawnCar());
     }
 
-    IEnumerator SpawnCar()
+    private IEnumerator SpawnCar()
     {
         for (int i = 1; i <= countOfNewCars; i++)
         {
@@ -27,11 +25,6 @@ public class AutoCarCreate : MonoBehaviour
                 transform.GetChild(0).position.z + UnityEngine.Random.Range(3f, 7f)); 
 
             GameObject spawn = Instantiate(car, pos, Quaternion.identity);
-
-            if (IsEnemy)
-            {
-                spawn.tag = "Enemy";
-            }
         }
     }
 }

@@ -4,18 +4,11 @@ using UnityEngine.AI;
 
 public class UnitAttack : MonoBehaviour
 {
-    [SerializeField] private int unitCost; //SO
-    public static int unitCoststatic;
-    [SerializeField] private float radius; //SO;
+    [SerializeField] private UnitBalance unitBalance;
     [SerializeField] private float shootingSpeed = 1f;
     private Coroutine _coroutine;
     public GameObject bullet;
-
-    private void Start()
-    {
-        unitCoststatic = unitCost;
-    }
-
+    
     private void Update()
     {
         DetectCollision();
@@ -23,7 +16,7 @@ public class UnitAttack : MonoBehaviour
 
     private void DetectCollision()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, unitBalance.UnitRadiusAttack);
         
         if (hitColliders.Length == 0 && _coroutine != null)
         {
@@ -57,7 +50,9 @@ public class UnitAttack : MonoBehaviour
     IEnumerator StartAttack(Collider enemyPosition)
     {
         GameObject obj = Instantiate(bullet, transform.GetChild(3).position, Quaternion.identity);
-        obj.GetComponent<BulletController>().position = enemyPosition.transform.position;
+        BulletController bulletController = obj.GetComponent<BulletController>();
+        bulletController.TargetPosition = enemyPosition.transform.position;
+        bulletController.causedDamage = unitBalance.UnitDamage;
         yield return new WaitForSeconds(shootingSpeed);
         StopCoroutine(_coroutine);
         _coroutine = null;

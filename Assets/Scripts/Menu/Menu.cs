@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    public void FirstLevelStart()
+    public void FirstLevelStart() //можно получать из unity 
     {
         SceneManager.LoadScene(1);
     }

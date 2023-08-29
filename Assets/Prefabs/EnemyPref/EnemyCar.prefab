@@ -726,7 +726,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7085460630238156685}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 2.73
+  m_Radius: 1.84
   m_Speed: 20
   m_Acceleration: 20
   avoidancePriority: 50
@@ -751,8 +751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b6a250589a166f45892842d045809a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitCost: 0
-  radius: 70
+  unitBalance: {fileID: 11400000, guid: a40dc525be4898646bf139b6679f85ae, type: 2}
   shootingSpeed: 1
   bullet: {fileID: 1720932187995192027, guid: e43fdd6b4fd30aa40a81c308960ee95c, type: 3}
 --- !u!54 &7932849710886806824
@@ -784,6 +783,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generalFieldsUnitBalance: {fileID: 11400000, guid: 862dc3877b697d0479aa70156cd77a49, type: 2}
+  unitBalance: {fileID: 11400000, guid: a40dc525be4898646bf139b6679f85ae, type: 2}
+  IsDamageGet: 0
+  damage: 0
 --- !u!1 &7727799658673004599
 GameObject:
   m_ObjectHideFlags: 0

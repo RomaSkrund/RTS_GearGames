@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class GenerateEnemy : MonoBehaviour
 {
-    public Transform[] points;
-    public GameObject factory;
+    [SerializeField] private Transform[] points;
+    [SerializeField] private GameObject factory;
 
     private void Start()
     {
@@ -22,8 +22,6 @@ public class GenerateEnemy : MonoBehaviour
             spawn.transform.rotation = Quaternion.Euler
                 (new Vector3(0, UnityEngine.Random.Range(0, 360), 0));
             spawn.GetComponent<AutoCarCreate>().enabled = true;
-
-            spawn.GetComponent<AutoCarCreate>().IsEnemy = true;
         }
     }
 
