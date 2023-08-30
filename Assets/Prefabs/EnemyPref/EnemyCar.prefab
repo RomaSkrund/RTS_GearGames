@@ -784,8 +784,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalFieldsUnitBalance: {fileID: 11400000, guid: 862dc3877b697d0479aa70156cd77a49, type: 2}
   unitBalance: {fileID: 11400000, guid: a40dc525be4898646bf139b6679f85ae, type: 2}
-  IsDamageGet: 0
-  damage: 0
+  healthBar: {fileID: 1695694070893898164}
 --- !u!1 &7727799658673004599
 GameObject:
   m_ObjectHideFlags: 0

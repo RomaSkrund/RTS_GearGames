@@ -6,7 +6,6 @@ public class ResourcesPanelUpdate : MonoBehaviour
     [SerializeField] private GameBalance gameBalance;
     public static int Resources;
     [SerializeField] private Text resoucesPanel;
-    public static bool IsMaxResouces;
 
     private void Start()
     {
@@ -15,7 +14,6 @@ public class ResourcesPanelUpdate : MonoBehaviour
 
     private void Update()
     {
-        IsMaxResouces = Resources == gameBalance.MaxResouces;
         resoucesPanel.text = Resources.ToString();
     }
 }

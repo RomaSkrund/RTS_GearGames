@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4e8a82f397eee449f0d3e82ea99d22, type: 3}
   m_Name: CarUnitBalance
   m_EditorClassIdentifier: 
-  unitCost: 100
-  unitHP: 300
   unitDamage: 50
   unitArmor: 20
   unitSpeed: 30
-  unitRadiusAttack: 70
+  unitRadiusAttack: 50

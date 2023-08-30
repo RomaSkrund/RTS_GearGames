@@ -256,22 +256,6 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 128
---- !u!114 &4172051395566647141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7420881708910024793}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e53e2581ed2c8dd49a7855df03000fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  car: {fileID: 7085460630238156685, guid: 6d4589dc9441a894fa3062b4c6855966, type: 3}
-  time: 5
-  countOfNewCars: 3
-  enemyHealthBar: {fileID: 2100000, guid: 134efd4b27c09d54e989f4b253ed63d4, type: 2}
 --- !u!114 &8818492095371206399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,6 +269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generalFieldsUnitBalance: {fileID: 11400000, guid: 121eb4d5106774046918a0e85195fbf6, type: 2}
+  unitBalance: {fileID: 0}
+  healthBar: {fileID: 2596768231440590960}
 --- !u!4 &7905950623432360675 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: de85eddaa2e7e2748a034a514b352ac4, type: 3}

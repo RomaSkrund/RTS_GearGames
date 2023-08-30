@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fab57bb4949624fb3bd462034962fa, type: 3}
   m_Name: GameBalance
   m_EditorClassIdentifier: 
-  factoryMiningCount: 10
+  factoryMiningCount: 20
   factoryMiningSpeed: 5
-  maxResouces: 120
-  startResouces: 1000
-  baseHP: 1500
+  maxResouces: 1000
+  startResouces: 100

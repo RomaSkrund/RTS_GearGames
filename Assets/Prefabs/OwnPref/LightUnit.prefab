@@ -399,6 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalFieldsUnitBalance: {fileID: 11400000, guid: 82ba7a17a885ba64b8b5ef4a76aabbdb, type: 2}
   unitBalance: {fileID: 11400000, guid: c5631af15d97bc946a22ef582ac08c93, type: 2}
+  healthBar: {fileID: 1569064499424494835}
 --- !u!114 &3175063295990547962
 MonoBehaviour:
   m_ObjectHideFlags: 0

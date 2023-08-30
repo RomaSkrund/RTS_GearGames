@@ -4,6 +4,7 @@ using UnityEngine;
 public class LevelSettings : ScriptableObject
 {
     [SerializeField] private int levelEndTime;
+    [SerializeField] private int timeChangeEnemyAction;
     
     [SerializeField] private int firstStepValue;
     [SerializeField] private int spawnFactoryFSV;
@@ -24,6 +25,8 @@ public class LevelSettings : ScriptableObject
     [SerializeField] private int ignoreTSV;
 
     public int LevelEndTime => levelEndTime;
+
+    public int TimeChangeEnemyAction => timeChangeEnemyAction;
     
     public int FirstStepValue => firstStepValue;
     public int SpawnFactoryFSV => spawnFactoryFSV;

@@ -269,7 +269,6 @@ GameObject:
   - component: {fileID: -6058935180704826291}
   - component: {fileID: -302282331980819287}
   - component: {fileID: 426159565566331085}
-  - component: {fileID: 3175063295990547962}
   m_Layer: 8
   m_Name: EnemyLightUnit
   m_TagString: Enemy
@@ -399,23 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalFieldsUnitBalance: {fileID: 11400000, guid: 82ba7a17a885ba64b8b5ef4a76aabbdb, type: 2}
   unitBalance: {fileID: 11400000, guid: c5631af15d97bc946a22ef582ac08c93, type: 2}
-  IsDamageGet: 0
-  damage: 0
---- !u!114 &3175063295990547962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3239052985491481776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b234a309fb4b0d3458734a3c593ac066, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layer:
-    serializedVersion: 2
-    m_Bits: 128
+  healthBar: {fileID: 1569064499424494835}
 --- !u!1 &3239052985491481780
 GameObject:
   m_ObjectHideFlags: 0

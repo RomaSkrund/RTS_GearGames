@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: FirstLevelSettings
   m_EditorClassIdentifier: 
   levelEndTime: 180
-  firstStepValue: 200
+  timeChangeEnemyAction: 10
+  firstStepValue: 0
   spawnFactoryFSV: 50
   spawnUnitFSV: 0
   attackBaseFSV: 0
@@ -23,7 +24,7 @@ MonoBehaviour:
   spawnUnitSSV: 50
   attackBaseSSV: 0
   ignoreSSV: 25
-  thirdStepValue: 700
+  thirdStepValue: 800
   spawnFactoryTSV: 0
   spawnUnitTSV: 25
   attackBaseTSV: 50

@@ -7,7 +7,15 @@ public class GetResources : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(AddResources());
+        if (gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(AddResources());
+        }
+        else
+        {
+            StartCoroutine(AddEnemyResources());
+        }
+        
     }
     
     private IEnumerator AddResources()
@@ -16,9 +24,23 @@ public class GetResources : MonoBehaviour
         {
             yield return new WaitForSeconds(gameBalance.FactoryMiningSpeed);
             
-            if (!ResourcesPanelUpdate.IsMaxResouces)
+            if (ResourcesPanelUpdate.Resources + gameBalance.FactoryMiningCount <= gameBalance.MaxResouces)
             {
                 ResourcesPanelUpdate.Resources += gameBalance.FactoryMiningCount;
+            }
+        }
+    }
+    
+    private IEnumerator AddEnemyResources()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(gameBalance.FactoryMiningSpeed);
+            
+            if (EnemyLogic.EnemyResources + gameBalance.FactoryMiningCount <= gameBalance.MaxResouces)
+            {
+                EnemyLogic.EnemyResources += gameBalance.FactoryMiningCount;
+                EnemyLogic.EnemyLevelValue += gameBalance.FactoryMiningCount;
             }
         }
     }

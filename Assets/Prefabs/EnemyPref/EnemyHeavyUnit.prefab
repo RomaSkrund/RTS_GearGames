@@ -240,7 +240,6 @@ GameObject:
   - component: {fileID: 8030606251806692529}
   - component: {fileID: -8448735332561063851}
   - component: {fileID: -6535155574989201700}
-  - component: {fileID: 4308302678069120814}
   - component: {fileID: 8995569631822918414}
   m_Layer: 8
   m_Name: EnemyHeavyUnit
@@ -355,23 +354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalFieldsUnitBalance: {fileID: 11400000, guid: fb0128023d6a75948b9550854a326567, type: 2}
   unitBalance: {fileID: 11400000, guid: 6c68cf18aa670814697c2ba3dc0198f6, type: 2}
-  IsDamageGet: 0
-  damage: 0
---- !u!114 &4308302678069120814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5090465390489110785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b234a309fb4b0d3458734a3c593ac066, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layer:
-    serializedVersion: 2
-    m_Bits: 128
+  healthBar: {fileID: 7887364967940439215}
 --- !u!114 &8995569631822918414
 MonoBehaviour:
   m_ObjectHideFlags: 0

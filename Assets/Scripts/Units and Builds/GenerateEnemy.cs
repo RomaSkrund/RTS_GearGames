@@ -1,28 +1,24 @@
-using System.Collections;
 using UnityEngine;
 
 public class GenerateEnemy : MonoBehaviour
 {
-    [SerializeField] private Transform[] points;
-    [SerializeField] private GameObject factory;
+    [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private GameObject enemyFactory;
+
+    [SerializeField] private float minimalDeviation;
+    [SerializeField] private float maximalDeviation;
+    
 
     private void Start()
     {
-        StartCoroutine(SpawnFactory());
+        var i = Random.Range(1, 5);
+        
+        Vector3 pos = new Vector3(
+            spawnPoints[i].position.x + Random.Range(minimalDeviation, maximalDeviation),
+            spawnPoints[i].position.y,
+            spawnPoints[i].position.z + Random.Range(minimalDeviation, maximalDeviation));
+        
+        GameObject spawn = Instantiate(enemyFactory);
+        spawn.transform.position = spawnPoints[i].position;
     }
-
-    IEnumerator SpawnFactory()
-    {
-        for(int i = 0; i < points.Length; i++)
-        {
-            yield return new WaitForSeconds(10f);
-            GameObject spawn =  Instantiate(factory);
-            Destroy(spawn.GetComponent<PlaceObjets>());
-            spawn.transform.position = points[i].position;
-            spawn.transform.rotation = Quaternion.Euler
-                (new Vector3(0, UnityEngine.Random.Range(0, 360), 0));
-            spawn.GetComponent<AutoCarCreate>().enabled = true;
-        }
-    }
-
 }

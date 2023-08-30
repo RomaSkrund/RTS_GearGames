@@ -487,6 +487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalFieldsUnitBalance: {fileID: 11400000, guid: d8c72f0aae6740d47a2b18232e135a23, type: 2}
   unitBalance: {fileID: 0}
+  healthBar: {fileID: 913130260272458031}
 --- !u!54 &6817470561028227721
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -5,15 +5,16 @@ using UnityEngine.UI;
 
 public class EndGameController : MonoBehaviour
 {
+    [SerializeField] private LevelSettings levelSettings;
     [SerializeField] private Text timer;
-    [SerializeField] private float roundTime;
+    private float roundTime;
     [SerializeField] private Image endMenu;
     [SerializeField] private Text gameResult;
     [SerializeField] private GameObject ownBase;
-    //флажок level is passed
 
     private void Start()
     {
+        roundTime = levelSettings.LevelEndTime; 
         GameTimeGo();
     }
 
