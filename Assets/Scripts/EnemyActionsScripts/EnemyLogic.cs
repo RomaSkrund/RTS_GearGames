@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -11,12 +12,10 @@ public class EnemyLogic : MonoBehaviour
     [SerializeField] private LevelSettings levelSettings;
     [SerializeField] private GameBalance gameBalance;
     [SerializeField] private GeneralFieldsUnitBalance generalFieldsUnitBalance;
-    [SerializeField] private Text testEnemyLevelValue;
     [SerializeField] private GeneralFieldsUnitBalance lightUnit;
     [SerializeField] private GeneralFieldsUnitBalance heavyUnit;
     [SerializeField] private GeneralFieldsUnitBalance carUnit;
-    private int _previosValue;
-    private int _currentValue;
+
     public static int EnemyResources;
     public static int EnemyLevelValue;//общее количество очков (включая потраченные) 
     [SerializeField] private int countEnemyFactory;
@@ -26,7 +25,6 @@ public class EnemyLogic : MonoBehaviour
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private GameObject enemyFactory;
     private int _numberSpawnPoint;
-    private int _numberUnitSpawnPoint;
     
     //spawnUnit's
     [SerializeField] private Transform[] unitsSpawnPoints;
@@ -37,88 +35,61 @@ public class EnemyLogic : MonoBehaviour
     //attackBase
     private List<GameObject> players;
     [SerializeField] private GameObject ownBase;
+    private ChouseActionService _chouseActionService;
+    private int _spawnPointNumbers;
+
     private void Start()
     {
         _numberSpawnPoint = 0;
-        _numberUnitSpawnPoint = 0;
         EnemyResources = gameBalance.StartResouces;
         EnemyLevelValue = gameBalance.StartResouces;
         StartCoroutine(ChangeEnemyAction());
+        _chouseActionService = new ChouseActionService();
     }
     
     private IEnumerator ChangeEnemyAction()
     {
         while (true)
         {
-            testEnemyLevelValue.text = EnemyLevelValue.ToString();
             yield return new WaitForSeconds(levelSettings.TimeChangeEnemyAction);
             
             if (EnemyLevelValue > levelSettings.FirstStepValue && EnemyLevelValue < levelSettings.SecondStepValue)
             {
-                ChooseAction(levelSettings.SpawnFactoryFSV, levelSettings.SpawnUnitFSV, levelSettings.AttackBaseFSV, levelSettings.IgnoreFSV);
+                MakeActionByEnum(_chouseActionService.ChooseAction(levelSettings.SpawnFactoryFSV, levelSettings.SpawnUnitFSV, 
+                    levelSettings.AttackBaseFSV, levelSettings.IgnoreFSV));
             }
             else if (EnemyLevelValue > levelSettings.SecondStepValue && EnemyLevelValue < levelSettings.ThirdStepValue)
             {
-                ChooseAction(levelSettings.SpawnFactorySSV, levelSettings.SpawnUnitSSV, levelSettings.AttackBaseSSV, levelSettings.IgnoreSSV);
+                MakeActionByEnum(_chouseActionService.ChooseAction(levelSettings.SpawnFactorySSV, levelSettings.SpawnUnitSSV, 
+                    levelSettings.AttackBaseSSV, levelSettings.IgnoreSSV));
             } 
             else if (EnemyLevelValue > levelSettings.ThirdStepValue)
             {
-                ChooseAction(levelSettings.SpawnFactoryTSV, levelSettings.SpawnUnitTSV, levelSettings.AttackBaseTSV, levelSettings.IgnoreTSV);
+                MakeActionByEnum(_chouseActionService.ChooseAction(levelSettings.SpawnFactoryTSV, levelSettings.SpawnUnitTSV, 
+                    levelSettings.AttackBaseTSV, levelSettings.IgnoreTSV));
             }
         }
     }
 
-    private void ChooseAction(int spawnFactory, int spawnUnit, int attackBase, int ignore)
+    private void MakeActionByEnum(ActionEnum actionEnum)
     {
-        var randomNumber = Random.Range(1, 101);
-        
-        if (spawnFactory != 0)
+        switch (actionEnum)
         {
-            ValueChanger(spawnFactory);
-            if (randomNumber > _previosValue && randomNumber <= _currentValue)
-            {
-                SpawnFactroy();
-            }
-        }
-
-        if (spawnUnit != 0)
-        {
-            ValueChanger(spawnUnit);
-            if (randomNumber > _previosValue && randomNumber <= _currentValue)
-            {
+            case ActionEnum.SpawnUnit:
                 SpawnUnit();
-            }
-        }
-        
-        if (attackBase != 0)
-        {
-            ValueChanger(attackBase);
-            if (randomNumber > _previosValue && randomNumber <= _currentValue)
-            {
+                break;
+            case ActionEnum.SpawnFactory:
+                SpawnFactroy();
+                break;
+            case ActionEnum.AttackBase:
                 AttackBase();
-            }
-        }
-        
-        if (ignore != 0)
-        {
-            ValueChanger(ignore);
-            if (randomNumber > _previosValue && randomNumber <= _currentValue)
-            {
+                break;
+            case ActionEnum.Ignore:
                 Ignore();
-            }
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
-        ValueCleaner();
-    }
-
-    private void ValueCleaner()
-    {
-        _previosValue = 0;
-        _currentValue = 0;
-    }
-    private void ValueChanger(int actionChance)
-    {
-        _previosValue = _currentValue;
-        _currentValue += actionChance;
     }
 
     private void SpawnFactroy()
@@ -141,52 +112,25 @@ public class EnemyLogic : MonoBehaviour
     {
         if (EnemyResources >= carUnit.UnitCost)
         {
-            //Spawn(carUnitModel, unitsSpawnPoints, _numberUnitSpawnPoint);
-            var spawn = Instantiate(carUnitModel);
-            spawn.transform.position = unitsSpawnPoints[_numberUnitSpawnPoint].position;
-            _numberUnitSpawnPoint++;
-            if (_numberUnitSpawnPoint == unitsSpawnPoints.Length)
-            {
-                _numberUnitSpawnPoint = 0;
-            }
+            Spawn(carUnitModel, unitsSpawnPoints);
             EnemyResources -= carUnit.UnitCost;
         } 
         else if (EnemyResources >= heavyUnit.UnitCost)
         {
-            //Spawn(heavyUnitModel, unitsSpawnPoints, _numberUnitSpawnPoint);
-            var spawn = Instantiate(heavyUnitModel);
-            spawn.transform.position = unitsSpawnPoints[_numberUnitSpawnPoint].position;
-            _numberUnitSpawnPoint++;
-            if (_numberUnitSpawnPoint == unitsSpawnPoints.Length)
-            {
-                _numberUnitSpawnPoint = 0;
-            }
+            Spawn(heavyUnitModel, unitsSpawnPoints);
             EnemyResources -= heavyUnit.UnitCost;
         }
         else if (EnemyResources >= lightUnit.UnitCost)
         {
-            //Spawn(lightUnitModel, unitsSpawnPoints, _numberUnitSpawnPoint);
-            var spawn = Instantiate(lightUnitModel);
-            spawn.transform.position = unitsSpawnPoints[_numberUnitSpawnPoint].position;
-            _numberUnitSpawnPoint++;
-            if (_numberUnitSpawnPoint == unitsSpawnPoints.Length)
-            {
-                _numberUnitSpawnPoint = 0;
-            }
+            Spawn(lightUnitModel, unitsSpawnPoints);
             EnemyResources -= lightUnit.UnitCost;
         }
     }
 
-    private void Spawn(GameObject unit, Transform[] unitSpawnPoints, int spawnPointNumbers)
+    private void Spawn(GameObject unit, Transform[] unitSpawnPoints)
     {
-        var spawn = Instantiate(unit);
-        spawn.transform.position = unitSpawnPoints[spawnPointNumbers].position;
-        spawnPointNumbers++;
-        
-        if (spawnPointNumbers == unitSpawnPoints.Length - 1)
-        {
-            spawnPointNumbers = 0;
-        }
+        var targetTransform = unitSpawnPoints[Random.Range(0,unitSpawnPoints.Length)];
+        Instantiate(unit, targetTransform.position, targetTransform.rotation);
     }
 
     private void AttackBase()

@@ -11,9 +11,8 @@ public class BulletController : MonoBehaviour
 
     private void Update()
     {
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards
-            (transform.position, TargetPosition, step);
+        var step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, TargetPosition, step);
 
         if (transform.position == TargetPosition)
         {
@@ -28,7 +27,7 @@ public class BulletController : MonoBehaviour
             return;
         }
         _attacedEnemy = other.gameObject;
-        var bla = _attacedEnemy.GetComponent<UnitHealth>();
-        bla.GetDamage(causedDamage);
+        var enemyHealth = _attacedEnemy.GetComponent<UnitHealth>();
+        enemyHealth.GetDamage(causedDamage);
     }
 }

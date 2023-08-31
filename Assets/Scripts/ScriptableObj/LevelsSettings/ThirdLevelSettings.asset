@@ -12,19 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4786784f39ab8aa4ab944214b4c91196, type: 3}
   m_Name: ThirdLevelSettings
   m_EditorClassIdentifier: 
-  levelEndTime: 0
+  levelEndTime: 300
+  timeChangeEnemyAction: 5
   firstStepValue: 0
-  spawnFactoryFSV: 0
+  spawnFactoryFSV: 100
   spawnUnitFSV: 0
   attackBaseFSV: 0
   ignoreFSV: 0
-  secondStepValue: 0
+  secondStepValue: 700
   spawnFactorySSV: 0
-  spawnUnitSSV: 0
+  spawnUnitSSV: 100
   attackBaseSSV: 0
   ignoreSSV: 0
-  thirdStepValue: 0
+  thirdStepValue: 1200
   spawnFactoryTSV: 0
-  spawnUnitTSV: 0
-  attackBaseTSV: 0
+  spawnUnitTSV: 50
+  attackBaseTSV: 50
   ignoreTSV: 0

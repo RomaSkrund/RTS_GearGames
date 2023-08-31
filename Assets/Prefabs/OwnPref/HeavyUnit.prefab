@@ -386,6 +386,7 @@ MonoBehaviour:
   unitBalance: {fileID: 11400000, guid: 6c68cf18aa670814697c2ba3dc0198f6, type: 2}
   shootingSpeed: 1
   bullet: {fileID: 1720932187995192027, guid: a1daafdc9c4e38e43987bef0a62090de, type: 3}
+  spawnBulletPoint: {fileID: 2582043168071362677}
 --- !u!1 &5090465390489110787
 GameObject:
   m_ObjectHideFlags: 0

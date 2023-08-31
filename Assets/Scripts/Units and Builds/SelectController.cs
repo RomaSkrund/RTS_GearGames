@@ -116,7 +116,7 @@ public class SelectController : MonoBehaviour
         {
             foreach (var el in players)
             {
-                if (el) //должен быть пулл объектов которые хранят инфу что они выделенны, и когда они умирают они сами выходят из массива  
+                if (el)
                 {
                     el.GetComponent<NavMeshAgent>().SetDestination(agentTarget.point);
                 }

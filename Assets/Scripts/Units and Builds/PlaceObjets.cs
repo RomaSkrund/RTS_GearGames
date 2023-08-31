@@ -17,7 +17,6 @@ public class PlaceObjets : MonoBehaviour
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, 1000f, layer))
-        
         {
             transform.position = hit.point; 
         }
@@ -29,9 +28,6 @@ public class PlaceObjets : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            //if (gameObject.GetComponent<AutoCarCreate>())
-            //gameObject.GetComponent<AutoCarCreate>().enabled = true;
-            
             Destroy(gameObject.GetComponent<PlaceObjets>());
         }
     }

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BaseGeneralBalance
   m_EditorClassIdentifier: 
   unitCost: 0
-  unitHP: 2000
+  unitHP: 5000

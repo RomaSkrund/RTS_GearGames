@@ -5,9 +5,10 @@ using UnityEngine.AI;
 public class UnitAttack : MonoBehaviour
 {
     [SerializeField] private UnitBalance unitBalance;
-    [SerializeField] private float shootingSpeed = 1f;
+    [SerializeField] private float shootingSpeed;
     private Coroutine _coroutine;
-    public GameObject bullet;
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private Transform spawnBulletPoint;
     
     private void Update()
     {
@@ -49,10 +50,10 @@ public class UnitAttack : MonoBehaviour
 
     IEnumerator StartAttack(Collider enemyPosition)
     {
-        GameObject obj = Instantiate(bullet, transform.GetChild(3).position, Quaternion.identity);
-        BulletController bulletController = obj.GetComponent<BulletController>();
-        bulletController.TargetPosition = enemyPosition.transform.position;
-        bulletController.causedDamage = unitBalance.UnitDamage;
+        GameObject ownBullet = Instantiate(bullet, spawnBulletPoint.position, Quaternion.identity);
+        BulletController ownBulletController = ownBullet.GetComponent<BulletController>();
+        ownBulletController.TargetPosition = enemyPosition.transform.position;
+        ownBulletController.causedDamage = unitBalance.UnitDamage;
         yield return new WaitForSeconds(shootingSpeed);
         StopCoroutine(_coroutine);
         _coroutine = null;

@@ -26,6 +26,6 @@ MonoBehaviour:
   ignoreSSV: 25
   thirdStepValue: 800
   spawnFactoryTSV: 0
-  spawnUnitTSV: 25
+  spawnUnitTSV: 50
   attackBaseTSV: 50
-  ignoreTSV: 25
+  ignoreTSV: 0

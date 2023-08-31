@@ -4,6 +4,10 @@ using UnityEngine;
 public class Rain : MonoBehaviour
 {
     [SerializeField] private Light dirLight;
+    [SerializeField] private float minTimeChangeWeather;
+    [SerializeField] private float maxTimeChangeWeather;
+    [SerializeField] private float minLightIntensity;
+    [SerializeField] private float maxLightIntensity;
     private ParticleSystem _ps; 
     private bool _isRain;  
 
@@ -16,13 +20,14 @@ public class Rain : MonoBehaviour
 
     private void Update()
     {
-        if (_isRain && dirLight.intensity > 0.25f)
+        switch (_isRain)
         {
-            LightIntensity(-1);
-        } 
-        else if (!_isRain && dirLight.intensity < 0.7f)
-        {
-            LightIntensity(1);
+            case true when dirLight.intensity > minLightIntensity:
+                LightIntensity(-1);
+                break;
+            case false when dirLight.intensity < maxLightIntensity:
+                LightIntensity(1);
+                break;
         }
     }
 
@@ -35,16 +40,16 @@ public class Rain : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(60f, 90f));
+            yield return new WaitForSeconds(Random.Range(minTimeChangeWeather, maxTimeChangeWeather));
             
-
-            if( _isRain )
+            switch (_isRain)
             {
-                _ps.Stop();
-            } 
-            else
-            {
-                _ps.Play();
+                case true:
+                    _ps.Stop();
+                    break;
+                default:
+                    _ps.Play();
+                    break;
             }
 
             _isRain = !_isRain; 

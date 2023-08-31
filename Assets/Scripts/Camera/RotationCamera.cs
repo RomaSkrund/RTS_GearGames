@@ -3,24 +3,24 @@ using DefaultNamespace;
 
 public class RotationCamera : MonoBehaviour
 {
-    private bool _pressedRightButton = false;
-    private bool _pressedLeftButton = false;
-    public void onDownRight()
+    private bool _pressedRightButton;
+    private bool _pressedLeftButton;
+    public void OnDownRight()
     {
         _pressedRightButton = true;
     }
 
-    public void onUpRight()
+    public void OnUpRight()
     {
         _pressedRightButton = false;
     }
     
-    public void onDownLeft()
+    public void OnDownLeft()
     {
         _pressedLeftButton = true;
     }
 
-    public void onUpLeft()
+    public void OnUpLeft()
     {
         _pressedLeftButton = false;
     }

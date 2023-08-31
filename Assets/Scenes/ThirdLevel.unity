@@ -5904,7 +5904,7 @@ RectTransform:
   - {fileID: 793079736}
   - {fileID: 1914079595}
   m_Father: {fileID: 920766729}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -18428,11 +18428,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1775518905}
   - {fileID: 2076621175}
   - {fileID: 1607427736}
   - {fileID: 1782253112}
   - {fileID: 89657597}
-  - {fileID: 1775518905}
   - {fileID: 2079952594}
   - {fileID: 721725841}
   - {fileID: 1838924301}
@@ -28658,7 +28658,7 @@ RectTransform:
   m_Children:
   - {fileID: 1486837602}
   m_Father: {fileID: 920766729}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -31088,7 +31088,7 @@ RectTransform:
   m_Children:
   - {fileID: 1643935403}
   m_Father: {fileID: 920766729}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -33323,7 +33323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cdde35d043d88144b67ab5d78de8364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSettings: {fileID: 11400000, guid: 451d68cf59ba4b448a78fa4300d8024b, type: 2}
+  levelSettings: {fileID: 11400000, guid: 4315bb49dbf426a4784fd49fdcaed88b, type: 2}
   timer: {fileID: 1914079597}
   endMenu: {fileID: 1838924302}
   gameResult: {fileID: 1726042967}
@@ -33382,7 +33382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d43254f9c0df94da2768c5d87a2382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSettings: {fileID: 11400000, guid: 451d68cf59ba4b448a78fa4300d8024b, type: 2}
+  levelSettings: {fileID: 11400000, guid: 4315bb49dbf426a4784fd49fdcaed88b, type: 2}
   gameBalance: {fileID: 11400000, guid: b64e4b29fc24a6d4fb1ba1ce5124b8f4, type: 2}
   generalFieldsUnitBalance: {fileID: 11400000, guid: 121eb4d5106774046918a0e85195fbf6, type: 2}
   lightUnit: {fileID: 11400000, guid: 82ba7a17a885ba64b8b5ef4a76aabbdb, type: 2}
@@ -35912,7 +35912,7 @@ RectTransform:
   - {fileID: 1588656349}
   - {fileID: 1256034130}
   m_Father: {fileID: 920766729}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

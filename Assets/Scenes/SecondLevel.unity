@@ -33323,7 +33323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cdde35d043d88144b67ab5d78de8364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSettings: {fileID: 11400000, guid: 451d68cf59ba4b448a78fa4300d8024b, type: 2}
+  levelSettings: {fileID: 11400000, guid: 261c7e2649bda3b4e877b1615ad4c894, type: 2}
   timer: {fileID: 1914079597}
   endMenu: {fileID: 1838924302}
   gameResult: {fileID: 1726042967}
@@ -33382,7 +33382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d43254f9c0df94da2768c5d87a2382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSettings: {fileID: 11400000, guid: 451d68cf59ba4b448a78fa4300d8024b, type: 2}
+  levelSettings: {fileID: 11400000, guid: 261c7e2649bda3b4e877b1615ad4c894, type: 2}
   gameBalance: {fileID: 11400000, guid: b64e4b29fc24a6d4fb1ba1ce5124b8f4, type: 2}
   generalFieldsUnitBalance: {fileID: 11400000, guid: 121eb4d5106774046918a0e85195fbf6, type: 2}
   lightUnit: {fileID: 11400000, guid: 82ba7a17a885ba64b8b5ef4a76aabbdb, type: 2}

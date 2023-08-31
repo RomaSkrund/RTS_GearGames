@@ -31,22 +31,23 @@ public class CameraController : MonoBehaviour
             rotateDirection = 1f;
         }
 
-        transform.Rotate(Vector3.up * rotateSpeed *
-                         Time.deltaTime * rotateDirection, Space.World);
-        
-        transform.Translate(new Vector3(horizontal, 0, vertical) * 
-            Time.deltaTime * moveSpeed, Space.Self);
+        transform.Rotate(Vector3.up * (rotateSpeed * Time.deltaTime * rotateDirection), Space.World);
 
-        transform.position += transform.up * zoomSpeed *
-            Input.GetAxis("Mouse ScrollWheel");
+        Transform transform1;
+        (transform1 = transform).Translate(new Vector3(horizontal, 0, vertical) * (Time.deltaTime * moveSpeed), Space.Self);
+
+        transform.position += transform1.up * (zoomSpeed * Input.GetAxis("Mouse ScrollWheel"));
 
         //phone movement
-        transform.Translate(new Vector3
+        Transform transform2;
+        (transform2 = transform).Translate(new Vector3
             (joystick.Horizontal * moveSpeed,0,joystick.Vertical * moveSpeed) * Time.deltaTime);
-        
-        transform.position = new Vector3(
-            Mathf.Clamp(transform.position.x, minX, maxX),
-            Mathf.Clamp(transform.position.y, minY, maxY),
-            Mathf.Clamp(transform.position.z, minZ, maxZ));
+
+        var position = transform2.position;
+        position = new Vector3(
+            Mathf.Clamp(position.x, minX, maxX),
+            Mathf.Clamp(position.y, minY, maxY),
+            Mathf.Clamp(position.z, minZ, maxZ));
+        transform.position = position;
     }
 }
